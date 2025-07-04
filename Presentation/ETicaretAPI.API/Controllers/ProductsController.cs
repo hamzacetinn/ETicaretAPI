@@ -15,14 +15,16 @@ namespace ETicaretAPI.API.Controllers
         readonly private IOrderReadRepository _orderReadRepository;
         readonly private IOrderWriteRepository _orderWriteRepository;
         readonly private ICustomerWriteRepository _customerWriteRepository;
+        readonly private IWebHostEnvironment _webHostEnvironment;
 
-        public ProductsController(IProductWriteRepository productWriteRepository, IProductReadRepository productReadRepository, IOrderWriteRepository orderWriteRepository, ICustomerWriteRepository customerWriteRepository, IOrderReadRepository orderReadRepository)
+        public ProductsController(IProductWriteRepository productWriteRepository, IProductReadRepository productReadRepository, IOrderWriteRepository orderWriteRepository, ICustomerWriteRepository customerWriteRepository, IOrderReadRepository orderReadRepository,IWebHostEnvironment webHostEnvironment)
         {
             _productWriteRepository = productWriteRepository;
             _productReadRepository = productReadRepository;
             _orderWriteRepository = orderWriteRepository;
             _customerWriteRepository = customerWriteRepository;
             _orderReadRepository = orderReadRepository;
+            this._webHostEnvironment = webHostEnvironment;
         }
 
         [HttpGet]
@@ -34,15 +36,19 @@ namespace ETicaretAPI.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(string id)
         {
-            Product product = await _productReadRepository.GetByIdAsync(id,false);
+            Product product = await _productReadRepository.GetByIdAsync(id, false);
 
             return Ok();
         }
         [HttpPost]
+
         public async Task<IActionResult> Post(VM_Create_Product model)
         {
+            //if(!ModelState.IsValid)
+            //{
 
-            _productWriteRepository.AddAsync(new()
+            //}
+            await _productWriteRepository.AddAsync(new()
             {
                 Name = model.Name,
                 Price = model.Price,
@@ -67,8 +73,29 @@ namespace ETicaretAPI.API.Controllers
         {
             Product p = await _productReadRepository.GetByIdAsync(id);
             _productWriteRepository.SaveAsync();
+            return Ok(new
+            {
+                message="Silme işlemi başarılı!",
+            });
+        }
+        [HttpPost("[action]")]
+        public async Task <IActionResult> Upload()
+        {
+            //wwwroot/resource/product-images
+            string uploadPath = Path.Combine(_webHostEnvironment.WebRootPath, "resource/product-images");
+            Random r = new();
+            foreach (IFormFile file in Request.Form.Files)
+            {
+                string fullpath = Path.Combine(uploadPath,$"{r.Next()}{Path.GetExtension(file.Name)}" );
+
+                using FileStream fileStream= new(fullpath, FileMode.Create, FileAccess.Write, FileShare.None,
+                1024*1024, useAsync: false);
+                await file.CopyToAsync(fileStream);
+                await fileStream.FlushAsync();
+            }
             return Ok();
         }
+
         /*[HttpGet("{id}")]
         public async Task<IActionResult> Get(string id)
         {
