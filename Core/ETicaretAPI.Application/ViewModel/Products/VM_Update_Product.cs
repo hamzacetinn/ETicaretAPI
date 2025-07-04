@@ -1,4 +1,4 @@
-﻿namespace ETicaretAPI.Application.Repositories.ViewModel.Products
+﻿namespace ETicaretAPI.Application.ViewModel.Products
 {
     public class VM_Update_Product
     {

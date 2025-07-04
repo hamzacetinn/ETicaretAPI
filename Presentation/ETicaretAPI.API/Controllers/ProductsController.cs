@@ -1,5 +1,5 @@
 ﻿using ETicaretAPI.Application.Repositories;
-using ETicaretAPI.Application.Repositories.ViewModel.Products;
+using ETicaretAPI.Application.ViewModel.Products;
 using ETicaretAPI.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
