@@ -19,7 +19,7 @@ namespace ETicaretAPI.Application.Validators.Products
                 .NotNull()
                     .WithMessage("Lütfen stok bilgisini boş bırakmayınız.")
                 .Must(s => s >= 0)
-                    .WithMessage("Stok bilgisi 0'dan büyük olmalıdır.");
+                    .WithMessage("Stok bilgisi negatif olamaz!");
             RuleFor(p => p.Price)
              .NotEmpty()
              .NotNull()
