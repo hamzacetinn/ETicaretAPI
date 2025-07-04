@@ -83,6 +83,10 @@ namespace ETicaretAPI.API.Controllers
         {
             //wwwroot/resource/product-images
             string uploadPath = Path.Combine(_webHostEnvironment.WebRootPath, "resource/product-images");
+            if(!Directory.Exists(uploadPath))
+            {
+                Directory.CreateDirectory(uploadPath);
+            }
             Random r = new();
             foreach (IFormFile file in Request.Form.Files)
             {
