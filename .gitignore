@@ -1,0 +1,14 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.resharper
+*.dotsettings
+*.ncrunch
+
+.vs\ETicaretAPI\v17\Keys\eticaretapi-465506-fb3ef0585d3e.json
+
+!vs/Core/
+        ETicaretAPI.sln
+        Infrastructure/
+        Presentation/
