@@ -26,3 +26,4 @@ C:\Users\hamza\Source\Repos\ETicaretAPI\Core\ETicaretAPI.Domain\obj\Debug\net9.0
 C:\Users\hamza\Source\Repos\ETicaretAPI\Core\ETicaretAPI.Domain\obj\Debug\net9.0\ETicaretAPI.Domain.pdb
 C:\Users\hamza\Source\Repos\ETicaretAPI\Core\ETicaretAPI.Domain\obj\Debug\net9.0\ETicaretAPI.Domain.genruntimeconfig.cache
 C:\Users\hamza\Source\Repos\ETicaretAPI\Core\ETicaretAPI.Domain\obj\Debug\net9.0\ref\ETicaretAPI.Domain.dll
+C:\Users\hamza\Source\Repos\ETicaretAPI\Core\ETicaretAPI.Domain\obj\Debug\net9.0\ETicaretAPI.Domain.csproj.AssemblyReference.cache

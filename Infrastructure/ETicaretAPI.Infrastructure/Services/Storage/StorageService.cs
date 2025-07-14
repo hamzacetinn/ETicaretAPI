@@ -18,11 +18,11 @@ namespace ETicaretAPI.Infrastructure.Services.Storage
             => await _storage.DeletAsync(pathOrContainerName, fileName);
 
         public List<string> GetFiles(string pathOrContainerName)
-        => _storage.GetFiles(pathOrContainerName);
+            => _storage.GetFiles(pathOrContainerName);
 
         public bool HasFile(string pathOrContainerName, string fileName)
             => _storage.HasFile(pathOrContainerName, fileName);
         public Task<List<(string fileName, string pathOrContainer)>> UploadAsync(string pathOrContainerName, IFormFileCollection files)
-        =>_storage.UploadAsync(pathOrContainerName, files);
+            => _storage.UploadAsync(pathOrContainerName, files);
     }
 }
