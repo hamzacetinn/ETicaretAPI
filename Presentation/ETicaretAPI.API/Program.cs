@@ -1,3 +1,4 @@
+using ETicaretAPI.Application;
 using ETicaretAPI.Application.Validators.Products;
 using ETicaretAPI.Infrastructure.Filters;
 using ETicaretAPI.Infrastructure.Services;
@@ -16,6 +17,7 @@ builder.Services.AddInfrastructureServices();
 builder.Services.AddStorage<AzureStorage>();
 builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy.WithOrigins("http://localhost:4200", "https://localhost:4200")
 .AllowAnyHeader().AllowAnyMethod()));
+builder.Services.AddApplicationServisec();
 //builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy.AllowAnyHeader().AllowAnyMethod() .AllowAnyOrigin())); = = > gelen tüm baðlanma isteklerine izin veriyoruz.
 
 builder.Services.AddControllers(options => options.Filters.Add<ValidationFilter>())
