@@ -16,16 +16,14 @@ namespace ETicaretAPI.Infrastructure.Services
             services.AddScoped<IStorageService, StorageService>();
 
         }
-
         public static void AddStorage<T>(this IServiceCollection servicesCollections) where T : RenameStorage, IStorage
         {
             //servicesCollections.AddScoped<IStorage, T>();
 
         }
-        
+        #region
         public static void AddStorage(this IServiceCollection servicesCollections, StorageType storageType)
         {
-
             switch (storageType) // bu yapı tercih edilmez genelde, t yazan yere AzureStogre yazarsak daha temiz bir kullanım olur, çeşitlilik olsun diye eklendi.
             {
                 case StorageType.Local:
@@ -39,10 +37,11 @@ namespace ETicaretAPI.Infrastructure.Services
 
                     break;
                 default:
-                    servicesCollections.AddScoped<IStorage, LocalStorage>();
+                    servicesCollections.AddScoped<IStorage, AzureStorage>();
                     break;
 
             }
         }
     }
+    #endregion
 }

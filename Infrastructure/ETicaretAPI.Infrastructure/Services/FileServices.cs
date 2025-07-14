@@ -12,7 +12,7 @@ namespace ETicaretAPI.Infrastructure.Services
         {
             string newFileName = await Task.Run(async () =>   //Asenkron bir fomksiyon üzerinden gerçekleştirmemizi sağlar.
             {
-                string extencion = Path.GetExtension(fileName);
+                string extencion = Path.GetExtension(fileName);// dosyya uzantıısı alınıyor mesela png, jpg...
                 string newFileName = string.Empty;
                 if (first)
                 {
@@ -45,7 +45,6 @@ namespace ETicaretAPI.Infrastructure.Services
                                 indexNo1 = lastIndex;
                             break;
                         }
-
                         int indexNo2 = fileName.IndexOf(".");
                         string fileNo = newFileName.Substring(indexNo1 + 1, (indexNo2 - indexNo1) - 1);
 
@@ -58,7 +57,6 @@ namespace ETicaretAPI.Infrastructure.Services
                         else
                         {
                             newFileName = $"{Path.GetFileNameWithoutExtension(fileName)}-2{extencion}";
-
                         }
                     }
                 }
@@ -69,9 +67,5 @@ namespace ETicaretAPI.Infrastructure.Services
             });
             return newFileName;
         }
-
-      
-
-
     }
 }

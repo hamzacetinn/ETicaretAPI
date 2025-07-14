@@ -20,6 +20,7 @@ namespace ETicaretAPI.Application.Features.Commands.Product.RemoveProduct
         {
             P product = await _productReadRepository.GetByIdAsync(request.Id);
             await _productWriteRepository.SaveAsync();
+            return new();
         }
     }
 }
