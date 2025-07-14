@@ -6,7 +6,7 @@ using P = ETicaretAPI.Domain.Entities.Product;
 
 namespace ETicaretAPI.Application.Features.Queries.ProductImageFile.GetProductImages
 {
-    public class GetProductImagesQueryHandler : IRequestHandler<GetProductImagesQueryRequest, List<GetProductImagesQueryResponse>
+    public class GetProductImagesQueryHandler : IRequestHandler<GetProductImagesQueryRequest, List<GetProductImagesQueryResponse>>
     {
         readonly IProductReadRepository _productReadRepository;
         readonly IConfiguration configuration;

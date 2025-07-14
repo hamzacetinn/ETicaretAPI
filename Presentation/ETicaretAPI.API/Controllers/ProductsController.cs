@@ -118,10 +118,10 @@ namespace ETicaretAPI.API.Controllers
             //    FileName = d.fileName,
             //    Path = d.path,
             //}).ToList());
-            await _productImageFileWriteRepository.SaveAsync();
-            var d1 = _fileReadRepository.GetAll(false); // false means no tracking, base sınıf olduğundan kendisinden türüyenlerin hepsini getirir/sıralar.
-            var d2 = _invoiceFileReadRepository.GetAll(false); // false means no tracking
-            var d3 = _productImageFileReadRepository.GetAll(false); // false means no tracking
+            //await _productImageFileWriteRepository.SaveAsync();
+            //var d1 = _fileReadRepository.GetAll(false); // false means no tracking, base sınıf olduğundan kendisinden türüyenlerin hepsini getirir/sıralar.
+            //var d2 = _invoiceFileReadRepository.GetAll(false); // false means no tracking
+            //var d3 = _productImageFileReadRepository.GetAll(false); // false means no tracking
             #endregion
         }
 

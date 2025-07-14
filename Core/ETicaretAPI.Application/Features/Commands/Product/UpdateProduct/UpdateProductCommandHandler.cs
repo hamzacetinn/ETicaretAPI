@@ -15,7 +15,7 @@ namespace ETicaretAPI.Application.Features.Commands.Product.UpdateProduct
             product.Stock = request.Stock;
             product.Name = request.Name;
             product.Price = request.Price;
-            await _productWriteRepository.AddAsync(p);
+            await _productWriteRepository.AddAsync(product);
             return new();
         }
     }
